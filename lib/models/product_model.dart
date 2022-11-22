@@ -24,7 +24,7 @@ class ProductModel {
   String? longDescription;
   num salePrice;
   num stock;
-  num? avgRating;
+  num avgRating;
   num productDiscount;
   String thumbnailImageUrl;
   List<String> additionalImages;
@@ -54,6 +54,7 @@ class ProductModel {
       productFieldShortDescription : shortDescription,
       productFieldLongDescription : longDescription,
       productFieldDiscount : productDiscount,
+      productFieldAvgRating: avgRating,
       productFieldSalePrice : salePrice,
       productFieldStock : stock,
       productFieldThumbnail : thumbnailImageUrl,
