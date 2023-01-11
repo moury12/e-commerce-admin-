@@ -1,4 +1,5 @@
 import 'package:ecommerce/customWidget/dashboard_item_view.dart';
+import 'package:ecommerce/providers/notification_provider.dart';
 import 'package:ecommerce/providers/order_provider.dart';
 import 'package:ecommerce/providers/productprovider.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +7,7 @@ import 'package:provider/provider.dart';
 
 import '../auth/authentication.dart';
 import '../models/dashboard_model.dart';
+import '../providers/user_provider.dart';
 import 'login_page.dart';
 
 class DashboardPage extends StatelessWidget {
@@ -18,6 +20,9 @@ class DashboardPage extends StatelessWidget {
     Provider.of<ProductProvider>(context,listen: false).getAllProduct();
     Provider.of<ProductProvider>(context,listen: false).getAllPurchase();
     Provider.of<OrderProvider>(context,listen: false).getOrderConstant();
+    Provider.of<OrderProvider>(context,listen: false).getOrders();
+    Provider.of<UserProvider>(context,listen: false).getAllUSer();
+    Provider.of<NotificationProvider>(context,listen: false).getAllNotification();
     return Scaffold(
       appBar: AppBar(title: const Text('Dashboard'),actions: [
         IconButton(onPressed: (){

@@ -1,12 +1,13 @@
-
 import 'package:ecommerce/pages/launcher_page.dart';
+import 'package:ecommerce/pages/notification_page.dart';
+import 'package:ecommerce/pages/order_details.dart';
+import 'package:ecommerce/providers/notification_provider.dart';
 import 'package:ecommerce/providers/order_provider.dart';
 import 'package:ecommerce/providers/productprovider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:provider/provider.dart';
-
 import 'pages/add_product_page.dart';
 import 'pages/category_page.dart';
 import 'pages/dashboard_page.dart';
@@ -18,13 +19,16 @@ import 'pages/report_page.dart';
 import 'pages/settings_page.dart';
 import 'pages/user_list_page.dart';
 import 'pages/view_product_page.dart';
+import 'providers/user_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp( MultiProvider(providers: [
     ChangeNotifierProvider(create: (context)=>ProductProvider()),
-    ChangeNotifierProvider(create: (context)=>OrderProvider())
+    ChangeNotifierProvider(create: (context)=>OrderProvider()),
+    ChangeNotifierProvider(create: (context)=>UserProvider()),
+    ChangeNotifierProvider(create: (context)=>NotificationProvider())
   ],
       child: const MyApp()));
 }
@@ -55,6 +59,9 @@ errorColor: Colors.orangeAccent,
         ProductDetailsPage.routeName : (_) => const ProductDetailsPage(),
         CategoryPage.routeName : (_) => const CategoryPage(),
         OrderPage.routeName : (_) => const OrderPage(),
+        OrderDetails.routeName : (_) => const OrderDetails(),
+        Notification_page.routeName : (_) => const Notification_page(),
+
         ReportPage.routeName : (_) => const ReportPage(),
         SettingsPage.routeName : (_) => const SettingsPage(),
         ProductRepurchasePage.routeName : (_) => const ProductRepurchasePage(),
@@ -63,3 +70,4 @@ errorColor: Colors.orangeAccent,
     );
   }
 }
+

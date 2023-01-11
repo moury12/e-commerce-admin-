@@ -1,8 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerce/models/category_model.dart';
+import 'package:ecommerce/models/notification.dart';
 import 'package:ecommerce/models/order_constant_model.dart';
+import 'package:ecommerce/models/order_model.dart';
 import 'package:ecommerce/models/product_model.dart';
 import 'package:ecommerce/models/purchase_model.dart';
+
+import '../models/user_model.dart';
 
 class DbHelper{
   static final _db=FirebaseFirestore.instance;
@@ -61,4 +65,26 @@ static Future<void>updateProductField(String productId,Map<String,dynamic> map){
 
   static Future<void> updateOrderConstant(OrderConstantModel model) {
   return _db.collection(collectionOrderConstant).doc(documentOrderConstant).update(model.toMap());
-  }}
+  }
+static Stream<QuerySnapshot<Map<String,dynamic>>>getAllOrders()=>
+    _db.collection(collectionOrder).snapshots();
+
+  static Future<bool> doesUserExist(String uid) async {
+    final snapshot = await _db.collection(collectionUser).doc(uid).get();
+    return snapshot.exists;
+  }
+
+  static Stream<QuerySnapshot<Map<String,dynamic>>> getAllUsers() =>
+      _db.collection(collectionUser).snapshots();
+
+  static Future<void> updateOrderStatus(String orderId, String status) async{
+    return _db.collection(collectionOrder).doc(orderId).update({orderFieldOrderStatus: status});
+  }
+
+  static Stream<QuerySnapshot<Map<String,dynamic>>>getAllNotification()=>
+      _db.collection(collectionNotification).snapshots();
+
+  static Future <void> updateNotificationStatus(String notId, bool status) {
+    return _db.collection(collectionNotification).doc(notId).update({notificationFieldStatus: status});
+  }
+}

@@ -1,4 +1,5 @@
 
+import 'package:ecommerce/pages/notification_page.dart';
 import 'package:flutter/material.dart';
 import '../pages/add_product_page.dart';
 import '../pages/category_page.dart';
@@ -7,7 +8,6 @@ import '../pages/report_page.dart';
 import '../pages/settings_page.dart';
 import '../pages/user_list_page.dart';
 import '../pages/view_product_page.dart';
-
 class DashboardModel {
   final String title;
   final IconData iconData;
@@ -28,4 +28,5 @@ const List<DashboardModel>dashboardModelList = [
   DashboardModel(title: 'Users', iconData: Icons.person, routeName: UserListPage.routeName),
   DashboardModel(title: 'Settings', iconData: Icons.settings, routeName: SettingsPage.routeName),
   DashboardModel(title: 'Report', iconData: Icons.pie_chart, routeName: ReportPage.routeName),
+  DashboardModel(title: 'Notification', iconData: Icons.notifications, routeName: Notification_page.routeName),
 ];
