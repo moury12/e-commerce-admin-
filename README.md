@@ -1,16 +1,4 @@
-# ecommerce
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# ecommerce Admin panel
+![InShot_20230820_221222711](https://github.com/moury12/e-commerce-admin-/assets/107296533/4d083e79-e765-4eb0-a0aa-2ca2283bfcd3)
+![InShot_20230816_230150227](https://github.com/moury12/e-commerce-admin-/assets/107296533/4c7bfb0e-2991-42a9-8eff-2683a4856625)
+![InShot_20230821_232348365](https://github.com/moury12/e-commerce-admin-/assets/107296533/58005554-fb55-484f-8da1-35911b9d583a)
