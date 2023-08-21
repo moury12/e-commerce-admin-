@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce/customWidget/image_holder_view.dart';
 import 'package:ecommerce/models/product_model.dart';
@@ -8,7 +10,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
+import 'package:http/http.dart' as http;
 
+import '../utils/constants.dart';
 class ProductDetailsPage extends StatefulWidget {
   static const String routeName = '/productdetails';
   const ProductDetailsPage({Key? key}) : super(key: key);
@@ -123,6 +127,10 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
             },
             title: Text('Featured'),
           ),
+          OutlinedButton(
+            onPressed: _notifyUser,
+            child: const Text('Notify Users'),
+          )
         ],
       ),
     );
@@ -203,5 +211,30 @@ rethrow;
       }, icon: Icon(Icons.delete))
     ] ,
     ));
+  }
+  void _notifyUser() async {
+    final url = 'https://fcm.googleapis.com/fcm/send';
+    final header = {
+      'Content-Type': 'application/json',
+      'Authorization': 'key=$serverKey',
+    };
+    final body = {
+      "to": "/topics/promo",
+      "notification": {
+        "title": "New arrival!!!",
+        "body": "Checkout this new Product ${productModel.productName}"
+      },
+      "data": {"key": "product", "value": productModel.productId}
+    };
+    try {
+      final response = await http.post(
+        Uri.parse(url),
+        headers: header,
+        body: json.encode(body),
+      );
+
+    } catch (error) {
+      print(error.toString());
+    }
   }
 }

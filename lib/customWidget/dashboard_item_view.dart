@@ -17,9 +17,9 @@ class DashboardItemView extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(model.iconData, size: 50, color: Theme.of(context).primaryColor,),
+              Icon(model.iconData, size: 30, color: Theme.of(context).primaryColor,),
               const SizedBox(height: 10,),
-              Text(model.title, style: Theme.of(context).textTheme.headline6,),
+              Text(model.title, style: TextStyle(fontWeight: FontWeight.bold,fontSize: 12),),
             ],
           ),
         ),

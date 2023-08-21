@@ -30,7 +30,7 @@ class DashboardPage extends StatelessWidget {
         }, icon: const Icon(Icons.logout))
       ],),
       body: GridView.builder(gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2
+        crossAxisCount: 3
       ),
           itemCount: dashboardModelList.length,
           itemBuilder: (context,index)=>DashboardItemView(model: dashboardModelList[index])),

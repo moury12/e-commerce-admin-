@@ -60,8 +60,8 @@ id= notification.userModel!.userId!;
         break;
 
     }
-    provider.updateNotificationStatus(notification.id, notification.status).then((value) {
-    });      Navigator.pushNamed(context, routeName, arguments: id);
+    provider.updateNotificationStatus(notification.id, notification.status);
+      Navigator.pushNamed(context, routeName, arguments: id);
 
   }
 }

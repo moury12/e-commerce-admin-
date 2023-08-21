@@ -41,13 +41,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        focusColor: Colors.deepPurple,
-errorColor: Colors.orangeAccent,
-        scaffoldBackgroundColor: Colors.white,
-        primarySwatch: Colors.deepPurple,
-      ),
+      title: 'Admin Panel',
+      theme: ThemeData.light(useMaterial3: true,).copyWith(scaffoldBackgroundColor: Colors.white,primaryColor: Colors.deepPurpleAccent,
+          appBarTheme: AppBarTheme(backgroundColor: Colors.white,foregroundColor: Colors.black54)),
+
       builder: EasyLoading.init(),
       initialRoute: LauncherPage.routeName,
       routes: {

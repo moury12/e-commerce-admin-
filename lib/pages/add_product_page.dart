@@ -153,13 +153,13 @@ class _AddProductPageState extends State<AddProductPage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 4.0),
+                padding:  EdgeInsets.symmetric(vertical: 4.0),
                 child: TextFormField(
-                  maxLines: 3,
+                  maxLines: 1,
                   controller: _longDescriptionController,
                   decoration: const InputDecoration(
                     filled: true,
-                    labelText: 'Enter Long Description(optional)',
+                    labelText: 'Enter cake weight',
                   ),
                   validator: (value) {
                     return null;
